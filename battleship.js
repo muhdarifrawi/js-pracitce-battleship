@@ -16,3 +16,22 @@ let playablePieces = {
     destroyer : ["two spaces","D2","E2"]
 }
 
+//now let's try to sink some pieces\
+
+function checkPosition(x) {
+    //check for all location
+    let posCarrier = playablePieces.carrier.slice(1);
+
+    for (each of posCarrier ) {
+        
+        if (x == each){
+            console.log("hit")
+        }
+        else {
+            console.log("miss")
+        }
+    }
+    
+}
+
+checkPosition("C9")
