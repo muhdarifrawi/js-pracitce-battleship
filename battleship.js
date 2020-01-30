@@ -1,4 +1,4 @@
-// let's create some rules
+//1.  let's create some rules
 //first we need some ships
 // carrier - five spaces
 //battleship - four spaces
@@ -16,16 +16,20 @@ let playablePieces = {
     destroyer : ["two spaces","D2","E2"]
 }
 
-//now let's try to sink some pieces\
+//now let's try to sink some pieces
 
-function checkPosition(x) {
+//after knowing we can sink something, we should store the values somewhere
+
+let hitPieces = []
+
+function checkPosition() {
     //check for all location
     let posCarrier = playablePieces.carrier.slice(1);
 
     for (each of posCarrier ) {
         
         if (x == each){
-            console.log("hit")
+            console.log(each + " hit")
         }
         else {
             console.log("miss")
@@ -33,5 +37,5 @@ function checkPosition(x) {
     }
     
 }
+checkPosition()
 
-checkPosition("C9")
