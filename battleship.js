@@ -23,12 +23,16 @@ let playablePieces = {
 let hitPieces = []
 
 function checkPosition() {
+    // we need the JS script to read our inputs and give us an output
+    let attackInput = document.getElementById("attackInput").value
+
     //check for all location
     let posCarrier = playablePieces.carrier.slice(1);
 
     for (each of posCarrier ) {
         
-        if (x == each){
+        if (attackInput == each){
+            console.log(attackInput)
             console.log(each + " hit")
         }
         else {
@@ -37,5 +41,9 @@ function checkPosition() {
     }
     
 }
-checkPosition()
+
+
+
+// also, we need only the code to run when we press submit. That should be on HTML side. 
+
 
