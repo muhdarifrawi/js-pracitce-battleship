@@ -32,11 +32,10 @@ function checkPosition() {
     for (each of posCarrier ) {
         
         if (attackInput == each){
-            console.log(attackInput)
-            console.log(each + " hit")
+            document.getElementById("outcome").innerHTML = each + ", Hit"
         }
         else {
-            console.log("miss")
+            document.getElementById("outcome").innerHTML = "Miss"
         }
     }
     
