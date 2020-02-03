@@ -20,11 +20,13 @@ let playablePieces = {
 
 //after knowing we can sink something, we should store the values somewhere
 
-let hitPieces = []
+let hitPieces = [];
+let numberOfHits = 0;
 
 function checkPosition() {
     // we need the JS script to read our inputs and give us an output
-    let attackInput = document.getElementById("attackInput").value
+    let attackInput = document.getElementById("attackInput").value;
+    //we want to display what we have hit so far. It should refresh every hit?
 
     //check for all location
     let posCarrier = playablePieces.carrier.slice(1);
@@ -32,13 +34,19 @@ function checkPosition() {
     for (each of posCarrier ) {
         
         if (attackInput == each){
-            document.getElementById("outcome").innerHTML = each + ", Hit"
-        }
-        else {
-            document.getElementById("outcome").innerHTML = "Miss"
+            hitPieces.push(attackInput);
         }
     }
-    
+    if (hitPieces.length != numberOfHits){
+        numberOfHits = numberOfHits + 1;
+        document.getElementById("attackInput").value = "";
+        document.getElementById("outcome").innerHTML = "Hit";
+    }
+    else{
+        document.getElementById("attackInput").value = "";
+        document.getElementById("outcome").innerHTML = "Miss"
+    }
+    document.getElementById("hits").innerHTML = hitPieces;
 }
 
 
