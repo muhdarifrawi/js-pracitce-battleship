@@ -53,4 +53,14 @@ function checkPosition() {
 
 // also, we need only the code to run when we press submit. That should be on HTML side. 
 
+// I would like to display all my ships for now 
+keyNames = Object.keys(playablePieces)
+shipType = keyNames[0]
+document.getElementById("ships").innerHTML = shipType + " " + playablePieces[shipType]
 
+let i = 0;
+for (i=0; i<Object.keys(playablePieces).length; i++){
+    shipType = keyNames[i]
+    document.getElementById("ships").innerHTML += shipType + " " + playablePieces[shipType] + "</br>"
+    console.log(shipType)
+}
