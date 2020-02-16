@@ -57,10 +57,18 @@ function checkPosition() {
 keyNames = Object.keys(playablePieces)
 shipType = keyNames[0]
 
-
 let i = 0;
 for (i=0; i<Object.keys(playablePieces).length; i++){
     shipType = keyNames[i]
     document.getElementById("ships").innerHTML += "</br>" + shipType + "</br>" + playablePieces[shipType] + "</br>"
-    console.log(shipType)
+}
+
+
+
+function cloneNow() {
+    let obj = document.getElementById("cloneRows")
+    let clone = obj.cloneNode("True")
+
+    document.getElementById("cloneParent").appendChild(clone)
+
 }

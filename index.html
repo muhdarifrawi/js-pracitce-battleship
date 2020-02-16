@@ -12,6 +12,10 @@
   </head>
   <body>
     <h1>Welcome to battleship!</h1>
+    <div class="container" id="cloneParent">
+      <div id="cloneRows" style="height: 30px;background-color:red;"></div>
+    </div>
+
     <div class="container">
         <input id="attackInput" type="text" placeholder="Key in a coordinate"></input>
         <input type="submit" value="Attack" onclick="checkPosition()"></input>
@@ -20,6 +24,8 @@
         <p>Ships: <span id="ships"></span></p>
         
     </div>
+
+    <button id="cloneNow" onclick="cloneNow()">Clone</button>
 
     <!-- Optional JavaScript -->
     <script src="battleship.js"></script>
