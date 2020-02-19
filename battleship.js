@@ -73,6 +73,8 @@ function cloneNow() {
 
 }
 
+// it's a hassle and quite untidy if you place all 10 rows and columns in HTML
+// so this function helps to create the necessary "map" by cloning
 function buildMap() {
     let j=0;
     let i=0;
