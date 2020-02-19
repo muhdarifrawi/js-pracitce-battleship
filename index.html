@@ -12,8 +12,10 @@
   </head>
   <body>
     <h1>Welcome to battleship!</h1>
-    <div class="container" id="cloneParent">
-      <div id="cloneRows" style="height: 30px;background-color:red;"></div>
+    <div class="container" id="cloneParent" >
+      <div class="row" id="cloneRows" style="height:60px;">
+        <div class="col" id="cloneCol" style="border:0.5px solid black;"></div>
+      </div>
     </div>
 
     <div class="container">
@@ -25,7 +27,7 @@
         
     </div>
 
-    <button id="cloneNow" onclick="cloneNow()">Clone</button>
+    <button id="cloneNow" onclick="buildMap()" >Clone</button>
 
     <!-- Optional JavaScript -->
     <script src="battleship.js"></script>

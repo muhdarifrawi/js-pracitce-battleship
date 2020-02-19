@@ -72,3 +72,26 @@ function cloneNow() {
     document.getElementById("cloneParent").appendChild(clone)
 
 }
+
+function buildMap() {
+    let j=0;
+    let i=0;
+    while (i<9){
+        while (j<9){
+            let objCol = document.getElementById("cloneCol");
+            let cloneB = objCol.cloneNode("True");
+            let cloneCol = document.getElementById("cloneRows").appendChild(cloneB);
+            
+            cloneCol;
+            j++;
+        } 
+        let objRow = document.getElementById("cloneRows");
+        let cloneA = objRow.cloneNode("True");
+        let cloneRow = document.getElementById("cloneParent").appendChild(cloneA);
+          
+        cloneRow;
+        i++;
+    }
+}
+
+buildMap()
