@@ -85,7 +85,7 @@ function buildMap() {
             let cloneCol = document.getElementById("cloneRows").appendChild(cloneB);
             
             cloneCol;
-            j++;
+            j++; 
         } 
         let objRow = document.getElementById("cloneRows");
         let cloneA = objRow.cloneNode("True");
@@ -94,6 +94,24 @@ function buildMap() {
         cloneRow;
         i++;
     }
+}
+
+function buildMap2(){
+    for (i=0;i<9;i++){
+        
+        let objRow = document.getElementById("cloneRows");
+        let cloneA = objRow.cloneNode(true);
+        let cloneRow = document.getElementById("cloneParent").appendChild(cloneA);
+  
+        for (j=0;j<9;j++){
+            let objCol = document.getElementById("cloneCol");
+            let cloneB = objCol.cloneNode(true);
+            let cloneCol = document.getElementById("cloneRows").appendChild(cloneB);
+            
+            
+        }
+    }
+    
 }
 
 buildMap()
