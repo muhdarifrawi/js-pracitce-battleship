@@ -14,22 +14,28 @@
     <title>Battleship</title>
   </head>
   <body>
-    <h1>Welcome to battleship!</h1>
-    <div class="container" id="cloneParent" >
-      <div class="row justify-content-center" id="cloneRows">
-        <div id="cloneCol"></div>
+    <h1 class="my-3 text-center">Welcome to battleship!</h1>
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-8">
+        <div class="container" id="cloneParent" >
+          <div class="row justify-content-center" id="cloneRows">
+            <div id="cloneCol"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="container">
+            <input id="attackInput" type="text" placeholder="Key in a coordinate"></input>
+            <input type="submit" value="Attack" onclick="checkPosition()"></input>
+            <p>Outcome: <span id="outcome"></span></p>
+            <p>Hits: <span id="hits"></span></p>
+            <p>Ships: <span id="ships"></span></p>
+            
+        </div>
       </div>
     </div>
-
-    <div class="container">
-        <input id="attackInput" type="text" placeholder="Key in a coordinate"></input>
-        <input type="submit" value="Attack" onclick="checkPosition()"></input>
-        <p>Outcome: <span id="outcome"></span></p>
-        <p>Hits: <span id="hits"></span></p>
-        <p>Ships: <span id="ships"></span></p>
-        
-    </div>
-
+  </div>
     <!-- Optional JavaScript -->
     <script src="battleship.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
