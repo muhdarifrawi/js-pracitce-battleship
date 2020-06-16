@@ -75,7 +75,7 @@ function cloneNow() {
 
 // it's a hassle and quite untidy if you place all 10 rows and columns in HTML
 // so this function helps to create the necessary "map" by cloning
-function buildMap() {
+function buildMap(callback) {
     let j=0;
     let i=0;
     while (i<9){
@@ -94,24 +94,23 @@ function buildMap() {
         cloneRow;
         i++;
     }
+    callback();
 }
 
-function buildMap2(){
-    for (i=0;i<9;i++){
-        
-        let objRow = document.getElementById("cloneRows");
-        let cloneA = objRow.cloneNode(true);
-        let cloneRow = document.getElementById("cloneParent").appendChild(cloneA);
-  
-        for (j=0;j<9;j++){
-            let objCol = document.getElementById("cloneCol");
-            let cloneB = objCol.cloneNode(true);
-            let cloneCol = document.getElementById("cloneRows").appendChild(cloneB);
-            
-            
-        }
-    }
+function rename(){
     
+    for (i=0; i<100; i++){
+        let seek = document.getElementById("cloneCol");
+        let number = "box" + i;
+        seek.style.border = "0.5px solid black";
+        seek.style.width = "50px";
+        seek.style.height = "50px";
+        seek.setAttribute("id",number);
+        console.log("here");
+    }
+    console.log("end");
 }
 
-buildMap()
+buildMap(rename);
+// buildMap()
+// rename()
