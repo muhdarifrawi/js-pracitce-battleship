@@ -85,6 +85,7 @@ function buildMap(callback) {
             let cloneCol = document.getElementById("cloneRows").appendChild(cloneB);
             
             cloneCol;
+            cloneCol.setAttribute("onmousedown","click(this.id)");
             j++; 
         } 
         let objRow = document.getElementById("cloneRows");
@@ -92,6 +93,7 @@ function buildMap(callback) {
         let cloneRow = document.getElementById("cloneParent").appendChild(cloneA);
           
         cloneRow;
+        
         i++;
     }
     callback();
@@ -105,6 +107,12 @@ function rename(){
         seek.style.border = "0.5px solid black";
         seek.style.width = "50px";
         seek.style.height = "50px";
+        seek.addEventListener("mouseover",function(){
+            this.style.background = "#0000ff";
+        });
+        seek.addEventListener("mouseout",function(){
+            this.style.background = "white";
+        });
         seek.setAttribute("id",number);
         console.log("here");
     }
