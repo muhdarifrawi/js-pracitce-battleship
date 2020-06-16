@@ -99,6 +99,10 @@ function buildMap(callback) {
     callback();
 }
 
+function choose() {
+    this.style.background = "blue";
+}
+
 function rename(){
     
     for (i=0; i<100; i++){
@@ -107,16 +111,9 @@ function rename(){
         seek.style.border = "0.5px solid black";
         seek.style.width = "50px";
         seek.style.height = "50px";
-        seek.addEventListener("mouseover",function(){
-            this.style.background = "#0000ff";
-        });
-        seek.addEventListener("mouseout",function(){
-            this.style.background = "white";
-        });
+        seek.addEventListener("click",choose);
         seek.setAttribute("id",number);
-        console.log("here");
     }
-    console.log("end");
 }
 
 buildMap(rename);
