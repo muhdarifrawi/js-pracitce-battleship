@@ -112,13 +112,28 @@ function choose() {
 function rename(){
     
     for (i=0; i<100; i++){
-        let seek = document.getElementById("cloneCol");
-        let number = "box" + i;
-        seek.style.border = "0.5px solid black";
-        seek.style.width = "50px";
-        seek.style.height = "50px";
-        seek.addEventListener("click",choose);
-        seek.setAttribute("id",number);
+        let number = 1;
+        let char = "A";
+        let charNum;
+            
+        while (charNum != "J10" ){
+            charNum = char + number;
+            number ++;
+            
+            let seek = document.getElementById("cloneCol");
+            seek.style.border = "0.5px solid black";
+            seek.style.width = "50px";
+            seek.style.height = "50px";
+            seek.addEventListener("click",choose);
+            seek.setAttribute("id",charNum);
+
+            if (number == 11){
+                char = char.charCodeAt()+1;
+                char = String.fromCharCode(char);
+                number = 1;
+            }
+        
+        }
     }
 }
 
@@ -126,21 +141,5 @@ buildMap(rename);
 // buildMap()
 // rename()
 
-function changeChar(){
-    let number = 1;
-    let char = "A";
-    let charNum;
-          
-    while (charNum != "J10" ){
-        charNum = char + number;
-        number ++;
-        console.log(charNum);
-        if (number == 11){
-            char = char.charCodeAt()+1;
-            char = String.fromCharCode(char);
-            number = 1;
-        }
-      
-    }
-  }
+
   
