@@ -101,7 +101,13 @@ function buildMap(callback) {
 
 function choose() {
     this.style.background = "blue";
+    console.log(this.id);
 }
+
+// we need to make an iteration kind of stuff going on 
+// to compare box = coordinate of ship
+
+
 
 function rename(){
     
@@ -119,3 +125,22 @@ function rename(){
 buildMap(rename);
 // buildMap()
 // rename()
+
+function changeChar(){
+    let number = 1;
+    let char = "A";
+    let charNum;
+          
+    while (charNum != "J10" ){
+        charNum = char + number;
+        number ++;
+        console.log(charNum);
+        if (number == 11){
+            char = char.charCodeAt()+1;
+            char = String.fromCharCode(char);
+            number = 1;
+        }
+      
+    }
+  }
+  
