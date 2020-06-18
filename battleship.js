@@ -101,13 +101,27 @@ function buildMap(callback) {
 
 function choose() {
     this.style.background = "blue";
-    console.log(this.id);
+    let value = this.id;
+
+    document.getElementById("modalAttack").setAttribute("onclick","attack("+value+")");
+    
+    // document.getElementById("modalCancel").setAttribute("click",function(){
+    //     console.log(value);
+    //     $('#myModal').modal('hide')
+    // });
+
+    $('#myModal').modal({backdrop:'static'});
+    
 }
+
+function attack (param){
+    console.log(param.id);
+    $('#myModal').modal("hide");
+}
+
 
 // we need to make an iteration kind of stuff going on 
 // to compare box = coordinate of ship
-
-
 
 function rename(){
     
@@ -119,7 +133,7 @@ function rename(){
         while (charNum != "J10" ){
             charNum = char + number;
             number ++;
-            
+
             let seek = document.getElementById("cloneCol");
             seek.style.border = "0.5px solid black";
             seek.style.width = "50px";
