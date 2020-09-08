@@ -23,20 +23,27 @@ let playablePieces = {
 let hitPieces = [];
 let numberOfHits = 0;
 
-function checkPosition() {
+function checkPosition(id) {
     // we need the JS script to read our inputs and give us an output
-    let attackInput = document.getElementById("attackInput").value;
+    // let attackInput = document.getElementById("attackInput").value;
+    let attackInput = id;
     //we want to display what we have hit so far. It should refresh every hit?
 
     //check for all location
-    let posCarrier = playablePieces.carrier.slice(1);
 
-    for (each of posCarrier ) {
-        
-        if (attackInput == each){
-            hitPieces.push(attackInput);
+    for (ship in playablePieces){
+        let shipProperty = playablePieces[ship];
+
+        for (each of shipProperty ) {
+            if (attackInput == each){
+                console.log("hit");
+                console.log(attackInput)
+                hitPieces.push(attackInput);
+                document.getElementById(id).style.backgroundColor = "red";
+            }
         }
     }
+    
     if (hitPieces.length != numberOfHits){
         numberOfHits = numberOfHits + 1;
         document.getElementById("attackInput").value = "";
@@ -105,19 +112,23 @@ function choose() {
 
     document.getElementById("modalAttack").setAttribute("onclick","attack("+value+")");
     
-    // document.getElementById("modalCancel").setAttribute("click",function(){
-    //     console.log(value);
-    //     $('#myModal').modal('hide')
-    // });
+    document.getElementById("modalCancel").setAttribute("onclick","cancel("+value+")");
 
     $('#myModal').modal({backdrop:'static'});
     
 }
 
 function attack (param){
-    console.log(param.id);
+    currentSelection = param.id;
+    checkPosition(currentSelection);
     $('#myModal').modal("hide");
 }
+
+function cancel(param){
+    currentSelection = param.id;
+    $('#myModal').modal('hide')
+    document.getElementById(currentSelection).style.backgroundColor = "white";
+};
 
 
 // we need to make an iteration kind of stuff going on 
@@ -139,6 +150,7 @@ function rename(){
             seek.style.width = "50px";
             seek.style.height = "50px";
             seek.addEventListener("click",choose);
+            seek.innerText = charNum;
             seek.setAttribute("id",charNum);
 
             if (number == 11){
