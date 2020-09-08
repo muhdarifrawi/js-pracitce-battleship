@@ -9,11 +9,11 @@
 //let's setup objects for them
 //so the string on index zero helps player recall how many spaces a piece holds
 let playablePieces = {
-    carrier : ["five spaces","B9","C9","D9","E9","F9"],
-    battleship : ["four spaces","G4","G5","G6","G7"],
-    cruiser : ["three spaces","C5","C6","C7"],
-    submarine : ["three spaces","F4","F5","F6"],
-    destroyer : ["two spaces","D2","E2"]
+    carrier : [5 ,"B9","C9","D9","E9","F9"],
+    battleship : [4 ,"G4","G5","G6","G7"],
+    cruiser : [3 ,"C5","C6","C7"],
+    submarine : [3,"F4","F5","F6"],
+    destroyer : [2 ,"D2","E2"]
 }
 
 //now let's try to sink some pieces
@@ -22,6 +22,30 @@ let playablePieces = {
 
 let hitPieces = [];
 let numberOfHits = 0;
+
+let tally = [0, 0, 0, 0, 0];
+
+function tallyCheck(name, length){
+    if (name == "carrier"){
+        tally[0] += 1;
+        if (tally[0] == length){
+            document.getElementById(name).style.color = "red"
+        }
+    }
+    else if (name == "battleship"){
+        tally[1] += 1;
+    }
+    else if (name == "cruiser"){
+        tally[2] += 1;
+    }
+    else if (name == "submarine"){
+        tally[3] += 1;
+    }
+    else if (name == "destroyer"){
+        tally[4] += 1;
+    }
+
+}
 
 function checkPosition(id) {
     // we need the JS script to read our inputs and give us an output
@@ -36,7 +60,8 @@ function checkPosition(id) {
 
         for (each of shipProperty ) {
             if (attackInput == each){
-                console.log("hit");
+                console.log("hit", ship, shipProperty[0]);
+                tallyCheck(ship, shipProperty[0]);
                 console.log(attackInput)
                 hitPieces.push(attackInput);
                 document.getElementById(id).style.backgroundColor = "red";
@@ -51,7 +76,7 @@ function checkPosition(id) {
     else{
         document.getElementById("outcome").innerHTML = "Miss"
     }
-    document.getElementById("hits").innerHTML = hitPieces;
+    // document.getElementById("hits").innerHTML = hitPieces;
 }
 
 
@@ -65,10 +90,14 @@ shipType = keyNames[0]
 let i = 0;
 for (i=0; i<Object.keys(playablePieces).length; i++){
     shipType = keyNames[i]
-    document.getElementById("ships").innerHTML += "</br>" + shipType + "</br>" + playablePieces[shipType][0] + "</br>"
+    document.getElementById("ships").innerHTML += "<div" +" id="+shipType+"></br>" + shipType + "</br>" + playablePieces[shipType][0] + "</br></div>"
 }
 
-
+let span = document.getElementsByTagName("span");
+console.log(span);
+for (i=1;i<span.length;i++){
+    span[i].style.fontSize = "15pt";
+}
 
 function cloneNow() {
     let obj = document.getElementById("cloneRows")
