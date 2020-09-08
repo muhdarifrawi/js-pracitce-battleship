@@ -90,7 +90,7 @@ shipType = keyNames[0]
 let i = 0;
 for (i=0; i<Object.keys(playablePieces).length; i++){
     shipType = keyNames[i]
-    document.getElementById("ships").innerHTML += "<div" +" id="+shipType+"></br>" + shipType + "</br>" + playablePieces[shipType][0] + "</br></div>"
+    document.getElementById("ships").innerHTML += "<div" +" id="+shipType+"></br>" + shipType + "</br>" + playablePieces[shipType][0] + " blocks long</br></div>"
 }
 
 let span = document.getElementsByTagName("span");
