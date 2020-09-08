@@ -46,11 +46,9 @@ function checkPosition(id) {
     
     if (hitPieces.length != numberOfHits){
         numberOfHits = numberOfHits + 1;
-        document.getElementById("attackInput").value = "";
         document.getElementById("outcome").innerHTML = "Hit";
     }
     else{
-        document.getElementById("attackInput").value = "";
         document.getElementById("outcome").innerHTML = "Miss"
     }
     document.getElementById("hits").innerHTML = hitPieces;
@@ -67,7 +65,7 @@ shipType = keyNames[0]
 let i = 0;
 for (i=0; i<Object.keys(playablePieces).length; i++){
     shipType = keyNames[i]
-    document.getElementById("ships").innerHTML += "</br>" + shipType + "</br>" + playablePieces[shipType] + "</br>"
+    document.getElementById("ships").innerHTML += "</br>" + shipType + "</br>" + playablePieces[shipType][0] + "</br>"
 }
 
 
