@@ -34,15 +34,27 @@ function tallyCheck(name, length){
     }
     else if (name == "battleship"){
         tally[1] += 1;
+        if (tally[1] == length){
+            document.getElementById(name).style.color = "red"
+        }
     }
     else if (name == "cruiser"){
         tally[2] += 1;
+        if (tally[2] == length){
+            document.getElementById(name).style.color = "red"
+        }
     }
     else if (name == "submarine"){
         tally[3] += 1;
+        if (tally[3] == length){
+            document.getElementById(name).style.color = "red"
+        }
     }
     else if (name == "destroyer"){
         tally[4] += 1;
+        if (tally[4] == length){
+            document.getElementById(name).style.color = "red"
+        }
     }
 
 }
