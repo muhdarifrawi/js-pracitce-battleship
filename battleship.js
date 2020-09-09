@@ -18,12 +18,15 @@ let playablePieces = {
 }
 
 function placePieces(){
-    let choiceDirection = 4;
+    // let choiceDirection = Math.floor(Math.random()*4) + 1;
+    let choiceDirection = 2;
+    playablePieces["test"] = [5];
     // place top to bottom
+    let shipLength = 5;
     let char = "A";
     let number = 1;
     if(choiceDirection == 1){
-        for (i=0;i<5;i++){
+        for (i=0;i<shipLength;i++){
             let charNum = char + number;
             playablePieces["test"].push(charNum);
             char = char.charCodeAt()+1;
@@ -33,7 +36,11 @@ function placePieces(){
     }
     // left to right
     else if(choiceDirection == 2){
-        for (i=0;i<5;i++){
+        // select start point
+        number = Math.floor(Math.random()*4) + 1;
+        char = Math.floor(Math.random()*10) + 65;
+        char = String.fromCharCode(char);
+        for (i=0;i<shipLength;i++){
             let charNum = char + number;
             playablePieces["test"].push(charNum);
             number ++;
@@ -46,7 +53,7 @@ function placePieces(){
             char = "J";
             
         }
-        for (i=0;i<5;i++){
+        for (i=0;i<shipLength;i++){
             let charNum = char + number;
             playablePieces["test"].push(charNum);
             char = char.charCodeAt()-1;
@@ -61,7 +68,7 @@ function placePieces(){
             number = 10;
             
         }
-        for (i=0;i<5;i++){
+        for (i=0;i<shipLength;i++){
             let charNum = char + number;
             playablePieces["test"].push(charNum);
             number --;
