@@ -9,11 +9,69 @@
 //let's setup objects for them
 //so the string on index zero helps player recall how many spaces a piece holds
 let playablePieces = {
+    test:[5],
     carrier : [5 ,"B9","C9","D9","E9","F9"],
     battleship : [4 ,"G4","G5","G6","G7"],
     cruiser : [3 ,"C5","C6","C7"],
     submarine : [3,"F4","F5","F6"],
     destroyer : [2 ,"D2","E2"]
+}
+
+function placePieces(){
+    let choiceDirection = 4;
+    // place top to bottom
+    let char = "A";
+    let number = 1;
+    if(choiceDirection == 1){
+        for (i=0;i<5;i++){
+            let charNum = char + number;
+            playablePieces["test"].push(charNum);
+            char = char.charCodeAt()+1;
+            char = String.fromCharCode(char);
+        }
+        console.log(playablePieces["test"]);
+    }
+    // left to right
+    else if(choiceDirection == 2){
+        for (i=0;i<5;i++){
+            let charNum = char + number;
+            playablePieces["test"].push(charNum);
+            number ++;
+        }
+        console.log(playablePieces["test"]);
+    }
+    // bottom to top
+    else if(choiceDirection == 3){
+        if(char == "A"){
+            char = "J";
+            
+        }
+        for (i=0;i<5;i++){
+            let charNum = char + number;
+            playablePieces["test"].push(charNum);
+            char = char.charCodeAt()-1;
+            char = String.fromCharCode(char);
+        }
+        
+        console.log(playablePieces["test"]);
+    }
+    // right to left
+    else if(choiceDirection == 4){
+        if(number == 1){
+            number = 10;
+            
+        }
+        for (i=0;i<5;i++){
+            let charNum = char + number;
+            playablePieces["test"].push(charNum);
+            number --;
+        }
+        
+        console.log(playablePieces["test"]);
+    }
+    else{
+        console.log("unexpected error");
+    }
 }
 
 //now let's try to sink some pieces
