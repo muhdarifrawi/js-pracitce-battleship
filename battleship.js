@@ -19,13 +19,19 @@ let playablePieces = {
 
 function placePieces(){
     // let choiceDirection = Math.floor(Math.random()*4) + 1;
-    let choiceDirection = 2;
+    let choiceDirection = 4;
     playablePieces["test"] = [5];
-    // place top to bottom
+    
     let shipLength = 5;
     let char = "A";
     let number = 1;
+
+    // place top to bottom
     if(choiceDirection == 1){
+        // select start point
+        number = Math.floor(Math.random()*10) + 1;
+        char = Math.floor(Math.random()*(shipLength+1)) + 65;
+        char = String.fromCharCode(char);
         for (i=0;i<shipLength;i++){
             let charNum = char + number;
             playablePieces["test"].push(charNum);
@@ -37,7 +43,7 @@ function placePieces(){
     // left to right
     else if(choiceDirection == 2){
         // select start point
-        number = Math.floor(Math.random()*4) + 1;
+        number = Math.floor(Math.random()*(shipLength+1)) + 1;
         char = Math.floor(Math.random()*10) + 65;
         char = String.fromCharCode(char);
         for (i=0;i<shipLength;i++){
@@ -49,10 +55,9 @@ function placePieces(){
     }
     // bottom to top
     else if(choiceDirection == 3){
-        if(char == "A"){
-            char = "J";
-            
-        }
+        number = Math.floor(Math.random()*10) + 1;
+        char = Math.floor(Math.random()*(11 - shipLength)) + (65+shipLength);
+        char = String.fromCharCode(char);
         for (i=0;i<shipLength;i++){
             let charNum = char + number;
             playablePieces["test"].push(charNum);
@@ -63,11 +68,10 @@ function placePieces(){
         console.log(playablePieces["test"]);
     }
     // right to left
-    else if(choiceDirection == 4){
-        if(number == 1){
-            number = 10;
-            
-        }
+    else if(choiceDirection == 4){             
+        number = Math.floor(Math.random()*(11 - shipLength)) + shipLength;
+        char = Math.floor(Math.random()*10) + 65;
+        char = String.fromCharCode(char);
         for (i=0;i<shipLength;i++){
             let charNum = char + number;
             playablePieces["test"].push(charNum);
